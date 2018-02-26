@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Simple Selenium tests with Spring" verbose="8" parallel="classes" thread-count="3" >
+	<test name="TestNG Spring tests">
+		<classes>
+			<class name="sampleTiTests.DoNothingTest" />
+			<class name="sampleTiTests.LoginLogoutTest" />
+			<class name="sampleTiTests.SaveScreenshotTest" /> 
+			<class name="sampleTiTests.SecurePageTest" /> 	
+			<class name="sampleTiTests.WrongLoginTest" />
+		</classes>
+	</test>
+</suite>
+

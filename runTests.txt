@@ -1,0 +1,2 @@
+mvn clean test -Dtests=tiTestNG -Dtest.env=ti -l log.txt 
+mvn clean test -Dtests=mtFirstTestNG -Dtest.env=mt_first -l log.txt 

@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+<title>Multi environment demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+#login {
+display: block;
+}
+
+#error {
+display: none;
+color: red;
+}
+
+#common {
+	display: none;
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+}
+
+#first { display: none; }
+
+#second {display: none;}
+
+#common_text {display: none;}
+
+.tenant_text {display: none;}
+.button { padding: .5em 1em; text-decoration: none; }
+.logout {float: right };
+
+</style>
+
+<script type="text/javascript">
+function loginFunction() {
+
+	var log = document.getElementById("login_name").value;
+	var pas =  document.getElementById("password").value;
+	var tenant = log + pas;
+	if(tenant==="admin@firstadmin") {
+		hide_element("login");
+		show_element("common");
+		show_element("first");
+	} 
+	else if(tenant==="admin@secondadmin") {
+		hide_element("login");
+		show_element("common");
+		show_element("second");
+	} else {
+		show_element("error");
+	}
+
+}
+
+function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+}
+
+function show_element(id) {
+      var e = document.getElementById(id);
+	  e.style.display = 'block';
+}
+
+function hide_element(id) {
+      var e = document.getElementById(id);
+	  e.style.display = 'none';
+}
+
+	
+</script>
+
+</head>
+
+<body>
+
+<div id="login">
+<h1>Login to application</h1>
+<input id="login_name" type="text" size="12" /> Login <br><br>
+<input id="password" type="password" size="12" /> Password <br><br>
+
+<input id="login_button" type="button" value="Login"  onclick="loginFunction()" > 
+<div id="error" >
+	Wrong credentials
+</div>
+
+ </div>
+<br><br>
+
+<div id="common" >
+<a class="logout" href="#" onclick="window.location.reload(true);"> Logout </a>
+<h1>Common part</h1>
+<input id="common_button" type="button" value="Common" onclick="toggle_visibility('common_text')"/> 
+<div id="common_text"> 
+Common text
+</div>
+ </div>
+<br><br>
+
+
+<div id="first">
+
+<h1>First tenant</h1>
+<input class="button" type="button" value="First" onclick="toggle_visibility('first_text')" />
+<div id="first_text" class="tenant_text"> 
+First text
+</div>
+
+ </div>
+<br><br>
+
+<div id="second">
+<h1>Second tenant</h1>
+<input class="button" type="button" value="Second"  onclick="toggle_visibility('second_text')"/>
+<div id="second_text" class="tenant_text"> 
+Second text
+</div>
+ </div>
+<br><br>
+
+</body>
+
+</html>
