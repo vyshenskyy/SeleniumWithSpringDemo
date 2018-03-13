@@ -27,4 +27,8 @@ hs_err_pid*
 .classpath
 .project
 
+#TestNG output
+test-output/
+
+# Maven files
 target/
